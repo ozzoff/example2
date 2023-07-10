@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            overflow: hidden;
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "monument";
+            overflow: hidden;
+            background-color: black;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            visibility: hidden;
+            
+        }
+
+        .img-container{
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .img-container::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            background-color: red;
+            height: 100%;
+            top: 0;
+            right: 0;
+        }
+
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <section class="container">
+        <div class="img-container">
+            <img src="/img/image1.webp" alt="">
+        </div>
+
+    </section>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+    <script>
+
+        let imag=CSSRulePlugin.getRule("img-container:after")
+
+gsap.to(".container", 1,{
+    css:{visibility:"visible"}
+    
+}).to(imag , 1.4,{
+    width:"0%",
+    
+})
+    </script>
+</body>
+</html>
